@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>پنل مدیریت منوی رستوران</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+  <div class="login-screen" id="loginScreen">
+    <div class="login-card">
+      <div class="logo">♨</div>
+      <h1>پنل مدیریت</h1>
+      <p>مدیریت منوی رستوران</p>
+      <form id="loginForm">
+        <label for="password">رمز ورود</label>
+        <input id="password" type="password" placeholder="رمز ورود را وارد کنید" autocomplete="current-password" required>
+        <button type="submit">ورود به پنل</button>
+        <small>رمز اولیه: <b>123456</b></small>
+      </form>
+    </div>
+  </div>
+
+  <div class="admin-app" id="adminApp">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <span>♨</span>
+        <div><strong>رستوران خوش</strong><small>پنل مدیریت</small></div>
+      </div>
+      <nav>
+        <button class="side-link active" data-section="dashboard">داشبورد</button>
+        <button class="side-link" data-section="foods">مدیریت غذاها</button>
+        <button class="side-link" data-section="categories">دسته‌بندی‌ها</button>
+        <button class="side-link" data-section="settings">تنظیمات منو</button>
+      </nav>
+      <button class="logout" id="logoutBtn">خروج از پنل</button>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <span class="eyebrow">مدیریت منوی رستوران</span>
+          <h1 id="pageTitle">داشبورد</h1>
+        </div>
+        <a class="view-menu" href="../index.html" target="_blank">مشاهده منو ↗</a>
+      </header>
+
+      <section class="section active" id="dashboardSection">
+        <div class="stats">
+          <div class="stat-card"><span>تعداد کل غذاها</span><strong id="totalFoods">0</strong></div>
+          <div class="stat-card"><span>غذاهای فعال</span><strong id="activeFoods">0</strong></div>
+          <div class="stat-card"><span>غذاهای غیرفعال</span><strong id="inactiveFoods">0</strong></div>
+          <div class="stat-card"><span>دسته‌بندی‌ها</span><strong id="categoryCount">0</strong></div>
+        </div>
+        <div class="dashboard-card">
+          <div class="card-head">
+            <div><h2>مدیریت سریع</h2><p>غذاها، دسته‌بندی‌ها و تنظیمات منوی اصلی را کنترل کنید.</p></div>
+            <button class="primary-btn" id="quickAddBtn">+ افزودن غذا</button>
+          </div>
+          <div class="quick-grid">
+            <button class="quick-action" data-go="foods">🍽 مدیریت غذاها</button>
+            <button class="quick-action" data-go="categories">▦ مدیریت دسته‌بندی‌ها</button>
+            <button class="quick-action" data-go="settings">⚙ تنظیمات منو</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="foodsSection">
+        <div class="content-card">
+          <div class="card-head">
+            <div><h2>لیست غذاها</h2><p>اطلاعات نمایش داده شده در منوی اصلی از این بخش کنترل می‌شود.</p></div>
+            <button class="primary-btn" id="addFoodBtn">+ افزودن غذا</button>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>تصویر</th><th>نام غذا</th><th>دسته‌بندی</th><th>قیمت</th><th>وضعیت</th><th>عملیات</th></tr></thead>
+              <tbody id="foodsTable"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="categoriesSection">
+        <div class="content-card">
+          <div class="card-head">
+            <div><h2>دسته‌بندی‌ها</h2><p>دسته‌بندی‌های نمایش داده شده در منوی غذا را مدیریت کنید.</p></div>
+            <button class="primary-btn" id="addCategoryBtn">+ افزودن دسته‌بندی</button>
+          </div>
+          <div class="category-admin-grid" id="categoryList"></div>
+        </div>
+      </section>
+
+      <section class="section" id="settingsSection">
+        <div class="content-card">
+          <div class="card-head">
+            <div><h2>تنظیمات منو</h2><p>نام رستوران، شماره تماس، متن‌ها و تصویر بالای منو.</p></div>
+          </div>
+          <form id="settingsForm" class="settings-grid">
+            <label>نام رستوران<input id="settingName" required></label>
+            <label>متن زیر نام<input id="settingSubtitle"></label>
+            <label>توضیح اصلی<textarea id="settingDescription" rows="3"></textarea></label>
+            <label>شماره تماس برای لینک<input id="settingPhone" placeholder="02112345678"></label>
+            <label>شماره تماس نمایشی<input id="settingPhoneDisplay" placeholder="۰۲۱-۱۲۳۴۵۶۷۸"></label>
+            <label>متن پایین سایت<input id="settingFooter"></label>
+            <label class="full">آدرس تصویر هدر<input id="settingHeroImage"></label>
+            <div class="image-upload-box full">
+              <span>یا تصویر هدر را مستقیماً انتخاب کنید:</span>
+              <input type="file" id="heroImageFile" accept="image/*">
+              <img id="heroPreview" alt="پیش‌نمایش هدر">
+            </div>
+            <button class="primary-btn full" type="submit">ذخیره تنظیمات</button>
+            <button class="secondary-btn full" type="button" id="resetSettingsBtn">بازگردانی تنظیمات اولیه</button>
+          </form>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="drawer-backdrop" id="drawerBackdrop">
+    <aside class="drawer">
+      <div class="drawer-head">
+        <div><span class="eyebrow">مدیریت غذا</span><h2 id="formTitle">افزودن غذا</h2></div>
+        <button class="close-drawer" id="closeDrawer">×</button>
+      </div>
+
+      <form id="foodForm">
+        <input type="hidden" id="foodId">
+
+        <label>نام غذا<input id="foodName" required placeholder="مثلاً کباب کوبیده"></label>
+        <label>دسته‌بندی<select id="foodCategory" required></select></label>
+        <label>قیمت<input id="foodPrice" required placeholder="مثلاً ۳۸۰,۰۰۰ تومان"></label>
+
+        <label>آدرس تصویر<input id="foodImage" placeholder="https://..."></label>
+
+        <div class="image-upload-box">
+          <span>یا تصویر غذا را از سیستم انتخاب کنید:</span>
+          <input type="file" id="foodImageFile" accept="image/*">
+          <img id="foodPreview" alt="پیش‌نمایش غذا">
+        </div>
+
+        <label>توضیح کوتاه<textarea id="foodShort" rows="3" required></textarea></label>
+        <label>توضیحات کامل<textarea id="foodDescription" rows="5" required></textarea></label>
+        <label>مواد تشکیل‌دهنده<textarea id="foodIngredients" rows="4" placeholder="مواد را با ویرگول جدا کنید"></textarea></label>
+
+        <label class="switch-row">
+          <span>نمایش غذا در منو</span>
+          <input id="foodActive" type="checkbox" checked>
+        </label>
+
+        <button class="save-btn" type="submit">ذخیره اطلاعات</button>
+      </form>
+    </aside>
+  </div>
+
+  <div class="mini-modal" id="categoryModal">
+    <div class="mini-card">
+      <button class="close-mini" id="closeCategoryModal">×</button>
+      <h2 id="categoryModalTitle">افزودن دسته‌بندی</h2>
+      <form id="categoryForm">
+        <input type="hidden" id="categoryOldId">
+        <label>نام دسته‌بندی<input id="categoryName" required placeholder="مثلاً غذاهای دریایی"></label>
+        <button class="primary-btn" type="submit">ذخیره</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="admin.js"></script>
+</body>
+</html>
