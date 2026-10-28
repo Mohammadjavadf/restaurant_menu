@@ -1,0 +1,712 @@
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --gold: #c89432;
+  --gold-light: #e6bd68;
+  --dark: #18120d;
+  --dark-2: #251a11;
+  --cream: #faf7f1;
+  --white: #ffffff;
+  --text: #30251d;
+  --muted: #7c7168;
+  --border: #e7dfd5;
+  --shadow: 0 10px 30px rgba(40, 25, 12, .08);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Vazirmatn", Tahoma, sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  line-height: 1.8;
+}
+
+button, a {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.hero {
+  position: relative;
+  min-height: 390px;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, rgba(15,10,6,.82), rgba(15,10,6,.22)),
+    url("https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1800&q=85")
+    center/cover;
+  color: white;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 72% 50%, rgba(200,148,50,.13), transparent 35%);
+}
+
+.hero-content {
+  position: relative;
+  width: min(1200px, calc(100% - 40px));
+  min-height: 390px;
+  margin: auto;
+  padding: 55px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 23px;
+  font-weight: 800;
+}
+
+.brand-icon {
+  color: var(--gold-light);
+  font-size: 34px;
+}
+
+.brand-subtitle {
+  color: #e5ddd4;
+  font-size: 12px;
+  margin-right: 42px;
+  margin-top: -3px;
+}
+
+.hero-title {
+  display: flex;
+  flex-direction: column;
+  margin-top: 42px;
+  font-size: clamp(48px, 7vw, 82px);
+  font-weight: 300;
+  line-height: .95;
+  border-bottom: 1px solid rgba(230,189,104,.65);
+  padding-bottom: 18px;
+}
+
+.hero-title strong {
+  color: var(--gold-light);
+  font-weight: 800;
+}
+
+.hero-content > p {
+  margin-top: 16px;
+  color: #eee5db;
+  font-size: 16px;
+}
+
+.menu-container {
+  width: min(1250px, calc(100% - 32px));
+  margin: auto;
+  padding: 55px 0 70px;
+}
+
+.menu-heading {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.menu-heading h1 {
+  display: inline-block;
+  margin: 0 15px;
+  font-size: 34px;
+}
+
+.ornament {
+  color: var(--gold);
+  font-size: 17px;
+}
+
+.menu-heading p {
+  color: var(--muted);
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+.categories {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 35px;
+}
+
+.category {
+  border: 1px solid var(--border);
+  background: #fff;
+  color: #4e443b;
+  border-radius: 10px;
+  min-width: 125px;
+  padding: 12px 20px;
+  font-size: 14px;
+  transition: .25s ease;
+}
+
+.category:hover,
+.category.active {
+  color: white;
+  background: var(--gold);
+  border-color: var(--gold);
+  transform: translateY(-2px);
+}
+
+.food-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+.food-card {
+  background: var(--white);
+  border: 1px solid #eee7df;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: .3s ease;
+  animation: cardIn .4s ease both;
+}
+
+.food-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 35px rgba(40,25,12,.13);
+}
+
+.food-image {
+  width: 100%;
+  aspect-ratio: 1.35;
+  object-fit: cover;
+  display: block;
+}
+
+.food-info {
+  padding: 17px;
+}
+
+.food-name {
+  font-size: 19px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.food-price {
+  color: var(--gold);
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+
+.food-short {
+  color: var(--muted);
+  font-size: 12.5px;
+  min-height: 51px;
+  line-height: 1.8;
+}
+
+.details-btn {
+  width: 100%;
+  margin-top: 15px;
+  padding: 10px 15px;
+  background: white;
+  border: 1px solid #dfc18b;
+  border-radius: 8px;
+  color: #6d4c1f;
+  font-size: 13px;
+  transition: .25s;
+}
+
+.details-btn:hover {
+  background: var(--gold);
+  color: white;
+}
+
+.show-more {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 35px auto 0;
+  padding: 11px 28px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: white;
+  color: #5b5047;
+}
+
+.show-more:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.arrow {
+  font-size: 20px;
+}
+
+.call-section {
+  width: min(1250px, calc(100% - 32px));
+  margin: 0 auto 35px;
+  padding: 30px;
+  border-radius: 20px;
+  background: linear-gradient(115deg, #17110c, #2a1d12);
+  color: white;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1.35fr;
+  gap: 20px;
+  align-items: center;
+}
+
+.call-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.call-icon {
+  width: 45px;
+  height: 45px;
+  border: 1px solid rgba(230,189,104,.5);
+  border-radius: 50%;
+  color: var(--gold-light);
+  display: grid;
+  place-items: center;
+  flex: 0 0 45px;
+}
+
+.call-item strong,
+.call-item span {
+  display: block;
+}
+
+.call-item strong {
+  font-size: 14px;
+}
+
+.call-item span {
+  color: #bdb0a2;
+  font-size: 11px;
+}
+
+.phone-box {
+  border-right: 1px solid rgba(255,255,255,.18);
+  padding-right: 25px;
+  text-align: center;
+}
+
+.phone-box span {
+  display: block;
+  color: #d4c8bb;
+  font-size: 12px;
+  margin-bottom: 7px;
+}
+
+.phone-box a {
+  display: inline-block;
+  color: #1d160f;
+  background: var(--gold-light);
+  padding: 9px 25px;
+  border-radius: 30px;
+  font-weight: 800;
+  text-decoration: none;
+  direction: ltr;
+}
+
+footer {
+  text-align: center;
+  color: #968b82;
+  font-size: 11px;
+  padding: 0 20px 25px;
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: none;
+  place-items: center;
+  padding: 25px;
+  background: rgba(14,9,5,.72);
+  backdrop-filter: blur(7px);
+}
+
+.modal-backdrop.open {
+  display: grid;
+  animation: fadeIn .2s ease;
+}
+
+.modal {
+  position: relative;
+  width: min(900px, 100%);
+  max-height: 90vh;
+  overflow: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--white);
+  border-radius: 20px;
+  box-shadow: 0 25px 70px rgba(0,0,0,.3);
+  animation: modalIn .25s ease;
+}
+
+.modal-close {
+  position: absolute;
+  z-index: 2;
+  top: 15px;
+  left: 15px;
+  width: 38px;
+  height: 38px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255,255,255,.92);
+  color: #4c4037;
+  font-size: 25px;
+  line-height: 1;
+  box-shadow: 0 4px 12px rgba(0,0,0,.12);
+}
+
+.modal-image-wrap {
+  min-height: 450px;
+}
+
+.modal-image-wrap img {
+  width: 100%;
+  height: 100%;
+  min-height: 450px;
+  object-fit: cover;
+}
+
+.modal-content {
+  padding: 45px 35px 35px;
+}
+
+.modal-category {
+  color: var(--gold);
+  font-size: 12px;
+}
+
+.modal-content h2 {
+  font-size: 30px;
+  margin-top: 4px;
+}
+
+.modal-price {
+  color: var(--gold);
+  font-size: 18px;
+  font-weight: 800;
+  margin: 4px 0 15px;
+}
+
+.modal-description {
+  color: #70655d;
+  font-size: 14px;
+  line-height: 2;
+}
+
+.ingredients {
+  margin-top: 23px;
+}
+
+.ingredients h3 {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.ingredients ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.ingredients li {
+  background: #faf4e9;
+  color: #675544;
+  border: 1px solid #eadbc2;
+  border-radius: 7px;
+  padding: 4px 10px;
+  font-size: 11px;
+}
+
+.quality-note {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 22px;
+  padding: 12px;
+  border: 1px solid #ecd9b8;
+  background: #fffaf1;
+  border-radius: 10px;
+}
+
+.quality-note span {
+  color: var(--gold);
+  font-size: 22px;
+}
+
+.quality-note p {
+  color: #75685b;
+  font-size: 11px;
+}
+
+.modal-phone {
+  margin-top: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 9px;
+  background: var(--gold);
+  color: white;
+  text-decoration: none;
+  border-radius: 9px;
+  padding: 12px;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modalIn {
+  from { opacity: 0; transform: scale(.97) translateY(10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@media (max-width: 1050px) {
+  .food-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .call-section {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .phone-box {
+    border-right: 0;
+    border-top: 1px solid rgba(255,255,255,.18);
+    padding: 20px 0 0;
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 750px) {
+  .hero,
+  .hero-content {
+    min-height: 330px;
+  }
+
+  .hero-content {
+    padding: 35px 10px;
+  }
+
+  .brand {
+    font-size: 19px;
+  }
+
+  .hero-title {
+    margin-top: 35px;
+    font-size: 55px;
+  }
+
+  .food-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .food-info {
+    padding: 13px;
+  }
+
+  .food-name {
+    font-size: 16px;
+  }
+
+  .food-short {
+    font-size: 11px;
+  }
+
+  .call-section {
+    grid-template-columns: 1fr;
+  }
+
+  .phone-box {
+    grid-column: auto;
+  }
+
+  .modal {
+    grid-template-columns: 1fr;
+    max-height: 94vh;
+  }
+
+  .modal-image-wrap,
+  .modal-image-wrap img {
+    min-height: 260px;
+    height: 260px;
+  }
+
+  .modal-content {
+    padding: 25px 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .menu-container,
+  .call-section {
+    width: min(100% - 20px, 1250px);
+  }
+
+  .food-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .food-image {
+    aspect-ratio: 1.55;
+  }
+
+  .category {
+    min-width: calc(50% - 8px);
+    padding: 10px 8px;
+    font-size: 12px;
+  }
+
+  .menu-heading h1 {
+    font-size: 28px;
+  }
+}
+/* ---------- بهبود تصویر کارت + skeleton ---------- */
+.food-image-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1.35;
+  overflow: hidden;
+  background: linear-gradient(100deg, #efe7db 30%, #f7f1e8 50%, #efe7db 70%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite linear;
+}
+
+.food-image-wrap .food-image {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+  object-fit: cover;
+  display: block;
+  opacity: 0;
+  transition: opacity .45s ease, transform .5s ease;
+}
+
+.food-image-wrap .food-image.loaded,
+.food-image-wrap .food-image.img-fallback {
+  opacity: 1;
+}
+
+.food-card:hover .food-image.loaded {
+  transform: scale(1.06);
+}
+
+/* وقتی تصویر fallback است، shimmer نباید بچرخد */
+.food-image-wrap:has(.img-fallback) {
+  animation: none;
+  background: linear-gradient(135deg, #2a1d12, #c89432);
+}
+
+@keyframes shimmer {
+  from { background-position: 200% 0; }
+  to   { background-position: -200% 0; }
+}
+
+/* ---------- دکمه مشاهده بیشتر زیباتر ---------- */
+.show-more {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 40px auto 0;
+  padding: 13px 34px;
+  border: 1px solid #dfc18b;
+  border-radius: 50px;
+  background: linear-gradient(180deg, #fff, #fdf8ee);
+  color: #6d4c1f;
+  font-weight: 600;
+  font-size: 14px;
+  box-shadow: 0 6px 18px rgba(200,148,50,.15);
+  transition: transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
+}
+
+.show-more:hover:not(:disabled) {
+  background: linear-gradient(180deg, #c89432, #b48127);
+  color: #fff;
+  border-color: #b48127;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(200,148,50,.35);
+}
+
+.show-more:active:not(:disabled) {
+  transform: translateY(0) scale(.98);
+}
+
+.show-more .arrow {
+  display: inline-block;
+  font-size: 18px;
+  transition: transform .3s ease;
+}
+
+.show-more:hover:not(:disabled) .arrow {
+  transform: translateY(3px);
+}
+
+.show-more.done {
+  background: #f6f1e8;
+  border-color: #e6d6bb;
+  color: #9a8b78;
+  box-shadow: none;
+}
+
+.show-more.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(6px);
+  transition: opacity .35s ease, transform .35s ease;
+}
+
+/* ---------- بهبود کلی کارت ---------- */
+.food-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.food-card .food-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.food-card .details-btn {
+  margin-top: auto;
+}
+
+/* ---------- اصلاح modal image برای fallback ---------- */
+.modal-image-wrap {
+  background: linear-gradient(135deg, #2a1d12, #c89432);
+}
+
+.modal-image-wrap img.img-fallback {
+  object-fit: contain;
+  padding: 20px;
+}

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="منوی آنلاین رستوران">
+  <title>منوی رستوران خوش</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+
+  <header class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="brand">
+        <span class="brand-icon">♨</span>
+        <span>رستوران خوش</span>
+      </div>
+      <span class="brand-subtitle">لذت واقعی غذاهای ایرانی و فرنگی</span>
+
+      <div class="hero-title">
+        <span>منوی</span>
+        <strong>غذا</strong>
+      </div>
+
+      <p>غذاهای تازه، باکیفیت و خوش‌طعم برای یک انتخاب لذت‌بخش</p>
+    </div>
+  </header>
+
+  <main class="menu-container">
+    <section class="menu-heading">
+      <span class="ornament">✦</span>
+      <h1>منوی غذا</h1>
+      <span class="ornament">✦</span>
+      <p>غذای مورد علاقه‌تان را انتخاب کنید و برای سفارش با ما تماس بگیرید.</p>
+    </section>
+
+    <div class="categories" id="categories">
+      <button class="category active" data-category="all">همه غذاها</button>
+      <button class="category" data-category="iranian">غذاهای ایرانی</button>
+      <button class="category" data-category="foreign">غذاهای فرنگی</button>
+      <button class="category" data-category="starter">پیش غذا</button>
+      <button class="category" data-category="salad">سالاد</button>
+      <button class="category" data-category="dessert">نوشیدنی و دسر</button>
+    </div>
+
+    <section class="food-grid" id="foodGrid"></section>
+
+    <button class="show-more" id="showMore">
+      <span>مشاهده بیشتر</span>
+      <span class="arrow">⌄</span>
+    </button>
+  </main>
+
+  <section class="call-section">
+    <div class="call-item">
+      <div class="call-icon">♨</div>
+      <div>
+        <strong>آشپز حرفه‌ای</strong>
+        <span>تهیه شده با تجربه و دقت</span>
+      </div>
+    </div>
+
+    <div class="call-item">
+      <div class="call-icon">✦</div>
+      <div>
+        <strong>مواد اولیه تازه</strong>
+        <span>انتخاب بهترین مواد اولیه</span>
+      </div>
+    </div>
+
+    <div class="call-item">
+      <div class="call-icon">✓</div>
+      <div>
+        <strong>سفارش آسان</strong>
+        <span>فقط کافی است تماس بگیرید</span>
+      </div>
+    </div>
+
+    <div class="phone-box">
+      <span>برای سفارش غذا با ما تماس بگیرید</span>
+      <a href="tel:02112345678">☎ ۰۲۱-۱۲۳۴۵۶۷۸</a>
+    </div>
+  </section>
+
+  <footer>
+    تمامی حقوق این سایت محفوظ است © ۱۴۰۵
+  </footer>
+
+  <div class="modal-backdrop" id="foodModal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" aria-label="بستن">×</button>
+
+      <div class="modal-image-wrap">
+        <img id="modalImage" src="" alt="">
+      </div>
+
+      <div class="modal-content">
+        <span class="modal-category" id="modalCategory"></span>
+        <h2 id="modalTitle"></h2>
+        <div class="modal-price" id="modalPrice"></div>
+        <p class="modal-description" id="modalDescription"></p>
+
+        <div class="ingredients">
+          <h3>مواد تشکیل‌دهنده</h3>
+          <ul id="modalIngredients"></ul>
+        </div>
+
+        <div class="quality-note">
+          <span>✦</span>
+          <p>مواد اولیه تازه و باکیفیت، بدون استفاده از افزودنی‌های غیرضروری.</p>
+        </div>
+
+        <a class="modal-phone" href="tel:02112345678">
+          <span>☎</span>
+          <span>سفارش تلفنی</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
